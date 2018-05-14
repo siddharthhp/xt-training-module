@@ -24,7 +24,7 @@ class Menu extends Component {
     return (
       <div ref={elem => (this.elem = elem)} className="col-md-3">
         <div
-          className="bs-sidebar hidden-print affix well"
+          className={!this.props.showCourseMenu ? "hidden" :  "bs-sidebar hidden-print affix well"}
           role="complementary"
         >
           <ul className="nav bs-sidenav">

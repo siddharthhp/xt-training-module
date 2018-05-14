@@ -22,9 +22,7 @@ class Header extends Component {
     };
   }
   componentDidMount() {
-    this.props.fetchSubCourseList(
-      this.elem.querySelectorAll('li.active')[0].getAttribute('data-courseid')
-    );
+    this.props.fetchSubCourseList(this.elem.querySelectorAll('li.active')[0].getAttribute('data-courseid'),false);
     const userDetail = sessionStorage.getItem('Name');
     if (userDetail) {
       this.setState({ userName: userDetail });
@@ -55,13 +53,14 @@ class Header extends Component {
       .closest('.navbar-nav')
       .querySelectorAll('li.active')[0];
     if (activeElement) {
-      activeElement.classList.remove('open', 'active', 'dropdown');
+      activeElement.classList.remove('active');
     }
-    currElement.classList.add('active');
     if (currElement.classList.contains('dropdown')) {
-      currElement.classList.add('open');
+      currElement.classList.toggle('open');
+      currElement.querySelectorAll('a')[0].blur();
     } else {
-      this.props.fetchSubCourseList(currElement.getAttribute('data-courseid'));
+      currElement.classList.add('active');
+      this.props.fetchSubCourseList(currElement.getAttribute('data-courseid'),!this.elem.querySelectorAll('li')[0].classList.contains('active'));
     }
     console.log(this.elem.querySelectorAll('#assessment')[0]);
   };
@@ -69,8 +68,9 @@ class Header extends Component {
     event.preventDefault();
     event.stopPropagation();
     var currElement = event.currentTarget;
-    currElement.parentElement.closest('li').classList.remove('open', 'active');
-    this.props.fetchSubCourseList(currElement.getAttribute('data-courseid'));
+    currElement.parentElement.closest('li').classList.remove('open');
+    currElement.parentElement.closest('li').classList.add('active');
+    this.props.fetchSubCourseList(currElement.getAttribute('data-courseid'),!this.elem.querySelectorAll('li')[0].classList.contains('active'));
     console.log(this.elem.querySelectorAll('#assessment')[0]);
   };
   nextClickHandler = async event => {
@@ -134,7 +134,7 @@ class Header extends Component {
         .classList.remove('active');
     }
     selectedElem.classList.add('active');
-    this.props.fetchSubCourseList(selectedElem.getAttribute('data-courseid'));
+    this.props.fetchSubCourseList(selectedElem.getAttribute('data-courseid'),!this.elem.querySelectorAll('li')[0].classList.contains('active'));
   };
   searchItemClickHandler = event => {
     event.preventDefault();

@@ -13,7 +13,7 @@ class Index extends Component {
   constructor(props) {
     super(props);
     this.authValidation = this.authValidation.bind(this);
-    this.state = { subCourseList: [], loggedIn: false };
+    this.state = { subCourseList: [], loggedIn: false, showCourseMenu: true };
   }
   static async getInitialProps(context) {
     const courses = await fetch(`${Config.apiUrl}/wp-json/wp/v2/subcourses`);
@@ -36,13 +36,13 @@ class Index extends Component {
     }
   }
 
-  fetchSubCourseList = async subcourseId => {
+  fetchSubCourseList = async (subcourseId, showCourseMenu) => {
     const subCourseList = await fetch(
       `${
         Config.apiUrl
       }/wp-json/wp/v2/courses?subcourses=${subcourseId}&filter[orderby]=menu_order`
     );
-    this.setState({ subCourseList: await subCourseList.json() });
+    this.setState({ subCourseList: await subCourseList.json(), showCourseMenu: showCourseMenu });
   };
   render() {
     const isLoggedIn = this.state.loggedIn;
@@ -51,6 +51,7 @@ class Index extends Component {
         isLoggedIn={this.state.loggedIn}
         courseList={this.props.courseList}
         fetchSubCourseList={this.fetchSubCourseList}
+        showCourseMenu={this.state.showCourseMenu}
         subCourseList={this.state.subCourseList}
       >
         <div className="col-md-9">

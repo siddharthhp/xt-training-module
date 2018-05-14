@@ -19,7 +19,7 @@ const Layout = props => (
       courseList={props.courseList}
       fetchSubCourseList={props.fetchSubCourseList}
     />
-    <Menu isLoggedIn={props.isLoggedIn} subCourseList={props.subCourseList} />
+    <Menu isLoggedIn={props.isLoggedIn} subCourseList={props.subCourseList} showCourseMenu={props.showCourseMenu}/>
     {props.children}
   </div>
 );
