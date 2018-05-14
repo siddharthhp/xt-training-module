@@ -2,6 +2,7 @@ import Helmet from 'react-helmet';
 import Layout from '../components/Layout.js';
 import React, { Component } from 'react';
 import fetch from 'isomorphic-unfetch';
+import Head from 'next/head';
 import Link from 'next/link';
 import Auth from '../components/Auth.js';
 import Login from '../components/Login.js';
@@ -25,9 +26,9 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="login-container">
-        <Helmet>
+        <Head>
           <link rel="stylesheet" href="/static/styles/style.css" />
-        </Helmet>
+        </Head>
         <h1> Login Form</h1>
         <Login />
       </div>

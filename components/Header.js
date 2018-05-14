@@ -55,7 +55,7 @@ class Header extends Component {
       .closest('.navbar-nav')
       .querySelectorAll('li.active')[0];
     if (activeElement) {
-      activeElement.classList.remove('open', 'active');
+      activeElement.classList.remove('open', 'active', 'dropdown');
     }
     currElement.classList.add('active');
     if (currElement.classList.contains('dropdown')) {
@@ -212,7 +212,7 @@ class Header extends Component {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="./">
               XT-Trainings Documentation
             </a>
           </div>
@@ -274,12 +274,12 @@ class Header extends Component {
               </li>
               <li className="disabled">
                 <a rel="next" onClick={this.previousClickHandler}>
-                  <i className="fa fa-arrow-left" /> Previous
+                  <i className="fa fa-arrow-left" />
                 </a>
               </li>
               <li>
                 <a rel="prev" onClick={this.nextClickHandler}>
-                  Next <i className="fa fa-arrow-right" />
+                  <i className="fa fa-arrow-right" />
                 </a>
               </li>
               {userSection ? (

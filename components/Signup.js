@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import Head from "next/head";
-import { Config } from "../config.js";
+import React, { Component } from 'react';
+import Link from 'next/link';
+import Head from 'next/head';
+import { Config } from '../config.js';
 
 class Signup extends Component {
   constructor() {
     super();
     this.state = {
-        username: null,
-        password: null,
-        email: null
+      username: null,
+      password: null,
+      email: null
     };
 
     this.signup = this.signup.bind(this);
-    this.handleChange = this.handleChange.bind(this);      
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  signup = async (event) => {
+  signup = async event => {
     event.preventDefault();
     const payload = {
       username: this.state.username,
@@ -30,8 +30,10 @@ class Signup extends Component {
       headers,
       body: JSON.stringify(payload)
     }).then(response => response.json());
-      this.elem.querySelectorAll('.success-message')[0].classList.remove('hidden');      
-  }
+    this.elem
+      .querySelectorAll('.success-message')[0]
+      .classList.remove('hidden');
+  };
 
   handleChange(e) {
     const target = e.target;
@@ -39,30 +41,56 @@ class Signup extends Component {
     const id = target.id;
 
     this.setState({
-        [id]: value
+      [id]: value
     });
   }
 
   render() {
     return (
       <form action="" method="post">
-        <div className="row"  ref = {elem => this.elem = elem}>
-        <span className="success-message hidden">User has been successfully registered. <Link href="./login">Login here</Link></span>
-            <div className="form-group">
-                <label htmlFor="email">Email Id</label>
-                <input type="text" className="form-control" id="email" onChange={this.handleChange}/>
-            </div>
-            <div className="form-group">
-                <label htmlFor="username">User Name</label>
-                <input type="text" className="form-control" id="username" onChange={this.handleChange}/>
-            </div>
-            <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input type="password" className="form-control" id="password" onChange={this.handleChange} />
-            </div>
-            <input type="submit" className="btn btn-default" onClick={this.signup} value="Signup" />
+        <div className="row" ref={elem => (this.elem = elem)}>
+          <span className="success-message hidden">
+            User has been successfully registered.{' '}
+            <Link href="./login">Login here</Link>
+          </span>
+          <div className="form-group">
+            <label htmlFor="email">Email Id</label>
+            <input
+              type="text"
+              className="form-control"
+              id="email"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="username">User Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              onChange={this.handleChange}
+            />
+          </div>
+          <input
+            type="submit"
+            className="btn btn-default"
+            onClick={this.signup}
+            value="Signup"
+          />
+          <p>
+            <Link href="./">Go back to Courses</Link>
+          </p>
         </div>
-        </form>
+      </form>
     );
   }
 }

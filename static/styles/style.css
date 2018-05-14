@@ -424,6 +424,10 @@ h6 .small,
     color: #999
 }
 
+.t-float-right {
+  float: right;
+}
+
 h1,
 h2,
 h3 {
@@ -4928,17 +4932,11 @@ textarea.input-group-sm>.input-group-btn>.btn {
         padding-top: 15px;
         padding-bottom: 15px
     }
-    .navbar-nav.navbar-right:last-child {
-        margin-right: -15px
-    }
 }
 
 @media(min-width:768px) {
     .navbar-left {
         float: left!important
-    }
-    .navbar-right {
-        float: right!important
     }
 }
 
@@ -4996,9 +4994,6 @@ textarea.input-group-sm>.input-group-btn>.btn {
         border: 0;
         -webkit-box-shadow: none;
         box-shadow: none
-    }
-    .navbar-form.navbar-right:last-child {
-        margin-right: -15px
     }
 }
 
