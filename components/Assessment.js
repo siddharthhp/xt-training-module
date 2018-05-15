@@ -146,11 +146,7 @@ class Assessment extends Component {
                     className="btn btn-default"
                     onClick={this.submitSolution}
                   >
-                    {(Object.keys(this.state.userAssessments).length > index
-                    ? this.state.userAssessments[index + 1].url
-                    : '')
-                      ? 'Edit'
-                      : 'Submit'}
+                    Submit
                   </button>
                 </div>
               </div>
