@@ -42,7 +42,10 @@ class Index extends Component {
         Config.apiUrl
       }/wp-json/wp/v2/courses?subcourses=${subcourseId}&filter[orderby]=menu_order`
     );
-    this.setState({ subCourseList: await subCourseList.json(), showCourseMenu: showCourseMenu });
+    this.setState({
+      subCourseList: await subCourseList.json(),
+      showCourseMenu: showCourseMenu
+    });
   };
   render() {
     const isLoggedIn = this.state.loggedIn;
@@ -54,7 +57,11 @@ class Index extends Component {
         showCourseMenu={this.state.showCourseMenu}
         subCourseList={this.state.subCourseList}
       >
-        <div className="col-md-9">
+        <div
+          className={
+            this.state.showCourseMenu ? 'col-md-9' : 'col-md-12 t-center-align'
+          }
+        >
           {this.state.subCourseList.map((subcourse, index) => {
             if (index == 0) {
               return (

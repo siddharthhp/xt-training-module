@@ -3772,6 +3772,10 @@ input[type="button"].btn-block {
     outline: 0
 }
 
+.t-center-align {
+  text-align: center;
+}
+
 .dropdown-header {
     display: block;
     padding: 3px 20px;

@@ -22,9 +22,16 @@ class Menu extends Component {
     const isLoggedIn = this.props.isLoggedIn;
     const liClass = isLoggedIn ? 'assessment' : 'hidden';
     return (
-      <div ref={elem => (this.elem = elem)} className="col-md-3">
+      <div
+        ref={elem => (this.elem = elem)}
+        className={!this.props.showCourseMenu ? 'hidden' : 'col-md-3'}
+      >
         <div
-          className={!this.props.showCourseMenu ? "hidden" :  "bs-sidebar hidden-print affix well"}
+          className={
+            !this.props.showCourseMenu
+              ? 'hidden'
+              : 'bs-sidebar hidden-print affix well'
+          }
           role="complementary"
         >
           <ul className="nav bs-sidenav">
