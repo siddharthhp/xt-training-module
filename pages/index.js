@@ -59,7 +59,7 @@ class Index extends Component {
       >
         <div
           className={
-            this.state.showCourseMenu ? 'col-md-9' : 'col-md-12 t-center-align'
+            this.state.showCourseMenu ? 'col-md-9' : 'col-md-12'
           }
         >
           {this.state.subCourseList.map((subcourse, index) => {
@@ -91,6 +91,7 @@ class Index extends Component {
                       `${subcourse.title.rendered}`
                     )}
                   </h2>{' '}
+		  <hr/>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: subcourse.content.rendered

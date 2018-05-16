@@ -490,6 +490,14 @@ h6,
     font-size: 12px
 }
 
+h2 {
+    color: brown !important;
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 35px;
+    font-weight: 500 !important;
+}
+
 p {
     margin: 0 0 10px
 }
@@ -2034,8 +2042,12 @@ output {
 }
 
 .solution-group > button {
-    display: block;
+    display: inline-block;
     width: auto;
+    padding: 2px 10px;
+    top: 4px;
+    position: relative;
+    margin-left: 8px;
 }
 
 .solution-group > label {
@@ -3816,6 +3828,14 @@ input[type="button"].btn-block {
     .navbar-right .dropdown-menu {
         right: 0;
         left: auto
+    }
+
+    .nav.course-list {
+        float: left;
+    }
+
+    .nav.navbar-right {
+        float: right;
     }
 }
 
@@ -8012,8 +8032,6 @@ footer {
 h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink{
     display:inline-block;
 }
-
-
 
 .admonition {
     padding: 15px;

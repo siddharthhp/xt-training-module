@@ -114,7 +114,16 @@ class Assessment extends Component {
           ref={elem => (this.elem = elem)}
           className="col-md-offset-1 col-md-9"
         >
-          <div className={submitClass}>
+	  <a
+            href="#"
+            className="redirectCourses"
+            onClick={this.assessmentRedirect}
+          >
+            &lt; Go back to courses
+          </a>
+
+	  <h1>Assessments</h1><hr/>
+          <div className={submitClass} style={{ color: 'green' }}>
             Assessment has been submitted successfully!
           </div>
           {this.state.assessmentsList.map((assessment, index) => {
@@ -124,12 +133,12 @@ class Assessment extends Component {
                 <div
                   dangerouslySetInnerHTML={{
                     __html: sanitizeHtml(assessment.content.rendered, {
-                      allowedTags: ['p', 'i', 'em', 'strong']
+                      allowedTags: ['p', 'i', 'em', 'strong', 'a']
                     })
                   }}
-                />
+                /><br/>
                 <div className="solution-group">
-                  <label htmlFor="">Please enter the Github URL: </label>
+                  <label htmlFor="">Solution - Github URL: </label>
                   <input
                     type="text"
                     id={this.state.subcourseId + '_' + index}
@@ -149,16 +158,10 @@ class Assessment extends Component {
                     Submit
                   </button>
                 </div>
+		<hr/>
               </div>
             );
           })}
-          <a
-            href="#"
-            className="redirectCourses"
-            onClick={this.assessmentRedirect}
-          >
-            Go back to courses
-          </a>
         </div>
       );
     } else {

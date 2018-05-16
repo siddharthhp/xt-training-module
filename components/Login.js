@@ -104,9 +104,9 @@ class Login extends Component {
             onClick={this.login}
             value="Login"
           />
-          <span>
+          {/*<span>
             <Link href="/signup">New User? Signup here</Link>
-          </span>
+          </span>*/}
           <span className="t-float-right">
             <Link href="./">Go back to Courses</Link>
           </span>

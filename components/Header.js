@@ -213,7 +213,7 @@ class Header extends Component {
               <span className="icon-bar" />
             </button>
             <a className="navbar-brand" href="./">
-              XT-Trainings Documentation
+              XT Trainings
             </a>
           </div>
           <div className="navbar-collapse collapse">
@@ -272,7 +272,7 @@ class Header extends Component {
                   <i className="fa fa-search" /> Search
                 </a>
               </li>
-              <li className="disabled">
+              {/*<li className="disabled">
                 <a rel="next" onClick={this.previousClickHandler}>
                   <i className="fa fa-arrow-left" />
                 </a>
@@ -281,7 +281,7 @@ class Header extends Component {
                 <a rel="prev" onClick={this.nextClickHandler}>
                   <i className="fa fa-arrow-right" />
                 </a>
-              </li>
+              </li>*/}
               {userSection ? (
                 <li onClick={this.userSectionClick}>
                   <span className="dropdown-toggle">
