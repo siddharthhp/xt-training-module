@@ -29,6 +29,8 @@ class Index extends Component {
   };
 
   componentDidMount() {
+    window.location.hash = '';
+    window.location.href.replace('#', '');
     this.authValidation();
     const isSubcourseSelected = sessionStorage.getItem('subcourseId');
     if (isSubcourseSelected) {
@@ -57,11 +59,7 @@ class Index extends Component {
         showCourseMenu={this.state.showCourseMenu}
         subCourseList={this.state.subCourseList}
       >
-        <div
-          className={
-            this.state.showCourseMenu ? 'col-md-9' : 'col-md-12'
-          }
-        >
+        <div className={this.state.showCourseMenu ? 'col-md-9' : 'col-md-12'}>
           {this.state.subCourseList.map((subcourse, index) => {
             if (index == 0) {
               return (
@@ -91,7 +89,7 @@ class Index extends Component {
                       `${subcourse.title.rendered}`
                     )}
                   </h2>{' '}
-		  <hr/>
+                  <hr />
                   <div
                     dangerouslySetInnerHTML={{
                       __html: subcourse.content.rendered
