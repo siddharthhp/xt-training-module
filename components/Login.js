@@ -9,12 +9,13 @@ async function store(value, name, id) {
   const userName = 'Name';
   const user_id = 'id';
   if (value === undefined) {
-    return sessionStorage.getItem(tokenKey);
+    console.log(window.localStorage.getItem(tokenKey));
+    return window.localStorage.getItem(tokenKey);
   }
 
-  sessionStorage.setItem(tokenKey, value);
-  sessionStorage.setItem(userName, name);
-  sessionStorage.setItem(user_id, id);
+  window.localStorage.setItem(tokenKey, value);
+  window.localStorage.setItem(userName, name);
+  window.localStorage.setItem(user_id, id);
 }
 
 const auth = {

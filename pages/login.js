@@ -13,7 +13,7 @@ class LoginPage extends Component {
   }
 
   authValidation = async event => {
-    const key = sessionStorage.getItem('AuthToken');
+    const key = window.localStorage.getItem('AuthToken');
     if (key) {
       window.location.href = './';
     }

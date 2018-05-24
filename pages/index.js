@@ -22,7 +22,7 @@ class Index extends Component {
   }
 
   authValidation = async event => {
-    const key = sessionStorage.getItem('AuthToken');
+    const key = window.localStorage.getItem('AuthToken');
     if (key) {
       this.setState({ loggedIn: true });
     }

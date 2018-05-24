@@ -23,7 +23,7 @@ class Header extends Component {
   }
   componentDidMount() {
     this.props.fetchSubCourseList(this.elem.querySelectorAll('li.active')[0].getAttribute('data-courseid'),false);
-    const userDetail = sessionStorage.getItem('Name');
+    const userDetail = window.localStorage.getItem('Name');
     if (userDetail) {
       this.setState({ userName: userDetail });
     }
@@ -161,7 +161,7 @@ class Header extends Component {
 
   logout = async event => {
     event.preventDefault();
-    sessionStorage.clear();
+    window.localStorage.clear();
     window.location.href = './';
   };
 
@@ -185,7 +185,7 @@ class Header extends Component {
       })
       .map(subcourse => {
         this.props.courseList.map((course, index) => {
-          if (subcourse.parent == course.id) {
+          if (subcourse.parent === course.id && subcourse.acf.visible !== false) {
             course.subcourseList.push({
               description: subcourse.description,
               id: subcourse.id

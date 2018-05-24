@@ -6,6 +6,7 @@ import Head from 'next/head';
 const Layout = props => (
   <div className="container">
     <Head>
+      <title>XT Trainings - Internal</title>
       <link rel="stylesheet" href="/static/styles/style.css" />
       <link
         rel="stylesheet"

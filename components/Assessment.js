@@ -47,7 +47,7 @@ class Assessment extends Component {
         );
       })
       .reverse();
-    let user_id = sessionStorage.getItem('id');
+    let user_id = window.localStorage.getItem('id');
     let solutionList = await fetch(
       `${Config.apiUrl}/wp-json/wp/v2/users/${user_id}`
     );
@@ -66,7 +66,7 @@ class Assessment extends Component {
     let value = input.value;
     let id = input.dataset.id;
     let sid = input.dataset.sid;
-    let user_id = sessionStorage.getItem('id');
+    let user_id = window.localStorage.getItem('id');
     let solutionList = await fetch(
       `${Config.apiUrl}/wp-json/wp/v2/users/${user_id}`
     );
