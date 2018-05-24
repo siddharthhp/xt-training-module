@@ -1,1 +1,1 @@
-export const Config = {apiUrl: 'http://delvmpincepdev01.sapient.com:8006'}
+export const Config = {apiUrl: 'http://xt-trainings-api.sapient.com:8006'}
